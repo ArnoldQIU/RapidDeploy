@@ -4,8 +4,7 @@ read NUM
 
 for ((svc=1;svc<$NUM+1;svc=svc+1))
 do 
-cp service.yaml service$svc.yaml
-echo"kind: Service
+echo "kind: Service
 apiVersion: v1
 metadata:
   labels:
