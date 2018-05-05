@@ -32,13 +32,9 @@ spec:
  done
 
 sleep 1
-
-IPOK= echo kubectl get svc nodesvc${svc} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
-while !($IPOK); do
-    sleep 1
-	if [$IPOK]; then
-		export SERVICE_IP$svc = $IPOK
-	fi
+for ((svc=1;svc<$NUM+1;svc=svc+1))
+do 
+if [$(SERVICE_IP$svc) == false]; then
+	export SERVICE_IP$svc=$(kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+fi
 done
-
-
