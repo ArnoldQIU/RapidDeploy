@@ -17,14 +17,14 @@ spec:
     node: node$svc 
   ports:
   - name: ipc
-    port: 2100$(svc-1)
-    targetPort: 2100$(svc-1)
+    port: 2100$svc-1
+    targetPort: 2100$svc-1
   - name: raftport
     port: 5040$svc
     targetPort: 5040$svc
   - name: rpcport
-    port: 2200$(svc-1)
-    targetPort: 2200$(svc-1)
+    port: 2200$svc-1
+    targetPort: 2200$svc-1
   - name: geth
     port: 900$svc
     targetPort: 900$svc
