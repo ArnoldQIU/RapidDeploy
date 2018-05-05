@@ -29,6 +29,5 @@ spec:
   type: LoadBalancer" > service${svc}.yaml
 
  kubectl apply -f service${svc}.yaml
- 
-
+ export SERVICE_IP${svc}=$(kubectl get svc nodesvc${svc} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 done
