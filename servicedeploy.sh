@@ -33,7 +33,7 @@ spec:
 
 sleep 1
 
-IPOK=kubectl get svc nodesvc${svc} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+IPOK= echo kubectl get svc nodesvc${svc} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 while !($IPOK); do
     sleep 1
 	if [$IPOK]; then
