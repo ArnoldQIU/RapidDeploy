@@ -9,27 +9,27 @@ echo"kind: Service
 apiVersion: v1
 metadata:
   labels:
-    node: node$svc 
-  name: nodesvc$svc
+    node: node${svc} 
+  name: nodesvc${svc}
 spec:
   selector:
-    node: node$svc 
+    node: node${svc} 
   ports:
   - name: ipc
-    port: 2100$svc-1
-    targetPort: 2100$svc-1
+    port: 2100${svc-1}
+    targetPort: 2100${svc-1}
   - name: raftport
-    port: 5040$svc
-    targetPort: 5040$svc
+    port: 5040${svc}
+    targetPort: 5040${svc}
   - name: rpcport
-    port: 2200$svc-1
-    targetPort: 2200$svc-1
+    port: 2200${svc-1}
+    targetPort: 2200${svc-1}
   - name: geth
-    port: 900$svc
-    targetPort: 900$svc
-  type: LoadBalancer" > service$svc.yaml
+    port: 900${svc}
+    targetPort: 900${svc}
+  type: LoadBalancer" > service${svc}.yaml
 
- kubectl create -f service$svc.yaml
+ kubectl apply -f service${svc}.yaml
  
 
 done
