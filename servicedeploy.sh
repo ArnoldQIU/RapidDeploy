@@ -38,7 +38,7 @@ TEMP=$(kubectl get svc nodesvc$svc | awk 'NR>1 {print $4}')
 while [[ $TEMP = "<pending>" ]]; do
 	#statements
 	TEMP=$(kubectl get svc nodesvc$svc | awk 'NR>1 {print $4}')
-	
+	echo 'waiting'
 done
 echo $TEMP
 done
