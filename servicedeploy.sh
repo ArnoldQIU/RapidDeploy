@@ -40,5 +40,5 @@ while [[ $TEMP="" ]]; do
 	TEMP=$(kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 	
 done
-export SERVICE_IP$svc = (kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+echo $TEMP
 done
