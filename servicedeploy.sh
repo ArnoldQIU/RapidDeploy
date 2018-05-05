@@ -39,6 +39,6 @@ TEMP=$(kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0]
 
 while[${TEMP} = false]
 do
-export SERVICE_IP$svc=$(kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+	export SERVICE_IP$svc=$(kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 done
 done
