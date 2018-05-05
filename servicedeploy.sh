@@ -34,8 +34,8 @@ spec:
 sleep 1
 for ((svc=1;svc<$NUM+1;svc=svc+1))
 do 
-TEMP=$(kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-while [[ $TEMP="" ]]; do
+TEMP=$(kubectl get svc nodesvc1 | awk 'NR>1 {print $4}'
+while [[ $TEMP="<pending>" ]]; do
 	#statements
 	TEMP=$(kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 	
