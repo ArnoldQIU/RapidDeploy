@@ -35,7 +35,7 @@ sleep 1
 for ((svc=1;svc<$NUM+1;svc=svc+1))
 do 
 export SERVICE_IP$svc=$(kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-TEMP=$(kubectl get svc nodesvc$svc | awk 'NR>1 {print $4}'
+TEMP=$(kubectl get svc nodesvc$svc | awk 'NR>1 {print $4}')
 if [TEMP = false]; then
 	export SERVICE_IP$svc=$(kubectl get svc nodesvc$svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 fi
