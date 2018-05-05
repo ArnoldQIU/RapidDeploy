@@ -36,9 +36,9 @@ while !$IPOK; do
     sleep 1
     IPOK=true
     do
-	if [ !(echo "kubectl get svc nodesvc${svc} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'")]; then
+		if [ !(echo "kubectl get svc nodesvc${svc} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'")]; then
             IPOK=false
-	fi
+		fi
     done
 done
 
