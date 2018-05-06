@@ -33,5 +33,5 @@ while $DOWN; do
             DOWN=true
 	fi
     done
-done' > constellation-start${v}.sh
+done' >> constellation-start${v}.sh
 done
