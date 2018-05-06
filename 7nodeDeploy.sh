@@ -1,7 +1,6 @@
 #echo "Enther your github volume address:"
 #read VOLUME
 #git clone $VOLUME
-read 7node=$(echo $NUM_K8S)
 for (( i = 1; i < $NUM_K8S; i++ ))
 do
 	#statements
