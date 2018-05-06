@@ -41,5 +41,5 @@ while [[ $TEMP = "<pending>" ]]; do
 	echo 'waiting for service ip....'
 	sleep 5
 done
-export SERVICE_IP$a=$(kubectl get svc nodesvc$a -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export SERVICE_IP${a-1}=$(kubectl get svc nodesvc${a-1} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 done
