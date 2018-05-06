@@ -1,6 +1,6 @@
-echo "Enther your github volume address:"
-read VOLUME
-git clone $VOLUME
+#echo "Enther your github volume address:"
+#read VOLUME
+#git clone $VOLUME
 
 for (( i = 1; i < $NUM_K8S; i++ )); do
 	#statements
