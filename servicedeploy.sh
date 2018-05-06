@@ -15,17 +15,17 @@ spec:
     node: node${svc} 
   ports:
   - name: ipc
-    port: 2100${svc-1}
-    targetPort: 2100${svc-1}
+    port: 21000
+    targetPort: 21000
   - name: raftport
-    port: 5040${svc}
-    targetPort: 5040${svc}
+    port: 50400
+    targetPort: 50400
   - name: rpcport
-    port: 2200${svc-1}
-    targetPort: 2200${svc-1}
+    port: 22000
+    targetPort: 22000
   - name: geth
-    port: 900${svc}
-    targetPort: 900${svc}
+    port: 9000
+    targetPort: 9000
   type: LoadBalancer" > service${svc}.yaml
 
  kubectl apply -f service${svc}.yaml
