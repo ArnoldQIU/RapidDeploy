@@ -41,5 +41,5 @@ while [[ $TEMP = "<pending>" ]]; do
 	echo 'waiting for service ip....'
 	sleep 5
 done
-export SERVICE_IP$svc = $(kubectl get svc nodesvc$svc | awk 'NR>1 {print $4}')
+export SERVICE_IP${svc}=$(kubectl get svc nodesvc${svc} | awk 'NR>1 {print $4}')
 done
