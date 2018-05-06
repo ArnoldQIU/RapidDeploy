@@ -37,7 +37,7 @@ done" > constellation-start${v}.sh
 done
 
 sequence=$(echo 1)
-iptemp$sequence=$(kubectl get svc nodesvc$h | awk 'NR>1 {print $4}')
+iptemp$sequence=$(kubectl get svc nodesvc$sequence | awk 'NR>1 {print $4}')
 
 echo "[
   'enode://ac6b1096ca56b9f6d004b779ae3728bf83f8e22453404cc3cef16a3d9b96608bc67c4b30db88e0a5a6c6390213f7acbe1153ff6d23ce57380104288ae19373ef@$iptemp$sequence:21000?discport=0&raftport=50400',
