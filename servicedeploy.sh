@@ -41,6 +41,6 @@ while [[ $TEMP = "<pending>" ]]; do
 	echo 'waiting for service ip....'
 	sleep 5
 done
-SERVICE_IP$svc=$TEMP
+SERVICE_IP$svc=echo $TEMP
 echo $SERVICE_IP$svc 
 done
