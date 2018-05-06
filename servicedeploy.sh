@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "How many services do you wanna create:"
 read NUM
-export NUM_K8S=echo ${NUM}
+export NUM_K8S=$(echo ${NUM})
 for ((svc=1;svc<$NUM+1;svc=svc+1))
 do 
 echo "kind: Service
