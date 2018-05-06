@@ -5,6 +5,7 @@ for (( v = 1; v < $NUM_K8S+1; v++ ))
 do
 	#statements
 	iptemp=$(echo $SERVICE_IP$v)
+echo iptemp
 echo '#!/bin/bash
 set -u
 set -e
