@@ -47,6 +47,7 @@ do
 cat > getIP.sh
 #!/bin/sh
 export SERVICE$b=$(kubectl get svc nodesvc$b | awk 'NR>1 {print $4}')
+^D
 done
 chmod u+x getIP.sh
 sh getIP.sh
