@@ -4,7 +4,6 @@
 for (( v = 1; v < $NUM_K8S+1; v++ ))
 do
 iptemp=$(kubectl get svc nodesvc$v | awk 'NR>1 {print $4}')
-
 	#statements
 echo "#!/bin/bash
 set -u
@@ -35,7 +34,3 @@ while $DOWN; do
     done
 done" > constellation-start${v}.sh
 done
-
-
-
-
