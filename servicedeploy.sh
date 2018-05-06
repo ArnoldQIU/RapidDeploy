@@ -40,6 +40,7 @@ while [[ $TEMP = "<pending>" ]]; do
 	TEMP=$(kubectl get svc nodesvc$a | awk 'NR>1 {print $4}')
 	echo 'waiting for service ip....'
 	sleep 5
-	export SERVICE_IP$a=$(kubectl get svc nodesvc$a | awk 'NR>1 {print $4}')
 done
 done
+
+sh 7nodeDeploy.sh
