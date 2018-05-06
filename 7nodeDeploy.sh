@@ -1,7 +1,7 @@
 #echo "Enther your github volume address:"
 #read VOLUME
 #git clone $VOLUME
-for (( i = 1; i < $NUM_K8S+1; i++ ))
+for (( v = 1; v < $NUM_K8S+1; v++ ))
 do
 	#statements
 echo '#!/bin/bash
@@ -16,7 +16,7 @@ do
     cp "keys/tm$i.pub" "$DDIR/tm.pub"
     cp "keys/tm$i.key" "$DDIR/tm.key"
     rm -f "$DDIR/tm.ipc"
-    CMD="constellation-node --url=https://${SERVER_IP{i}}:9000/ --port=9000 --workdir=$DDIR --socket=tm.ipc --publickeys=tm.pub --privatekeys=tm.key --othernodes=https://${SERVER_IP1}:9000/"
+    CMD="constellation-node --url=https://${SERVER_IP{v}}:9000/ --port=9000 --workdir=$DDIR --socket=tm.ipc --publickeys=tm.pub --privatekeys=tm.key --othernodes=https://${SERVER_IP1}:9000/"
     echo "$CMD >> qdata/logs/constellation$i.log 2>&1 &"
     $CMD >> "qdata/logs/constellation$i.log" 2>&1 &
 done
@@ -31,5 +31,5 @@ while $DOWN; do
             DOWN=true
 	fi
     done
-done' > constellation-start$i.sh
+done' > constellation-start$v.sh
 done
