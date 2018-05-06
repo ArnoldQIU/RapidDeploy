@@ -34,12 +34,12 @@ spec:
 sleep 1
 for ((a=1;a<$NUM+1;a=a+1))
 do 
-TEMP=$(kubectl get svc nodesvc$svc | awk 'NR>1 {print $4}')
+TEMP=$(kubectl get svc nodesvc$a | awk 'NR>1 {print $4}')
 while [[ $TEMP = "<pending>" ]]; do
 	#statements
-	TEMP=$(kubectl get svc nodesvc$svc | awk 'NR>1 {print $4}')
+	TEMP=$(kubectl get svc nodesvc$a | awk 'NR>1 {print $4}')
 	echo 'waiting for service ip....'
 	sleep 5
 done
-export SERVICE_IP${a-1}=$(kubectl get svc nodesvc${a-1} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export SERVICE_IP$a-=$(kubectl get svc nodesvc$a -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 done
