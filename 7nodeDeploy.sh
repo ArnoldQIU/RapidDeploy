@@ -34,7 +34,7 @@ while $DOWN; do
 	fi
     done
 done" > constellation-start${v}.sh
-podname=$(kubectl get pods --selector=node=node{v}|  awk 'NR>1 {print $1}')
+#podname=$(kubectl get pods --selector=node=node{v}|  awk 'NR>1 {print $1}')
 #kubectl cp constellation-start${v}.sh default/$podname:/Docker/7node 
 done
 
