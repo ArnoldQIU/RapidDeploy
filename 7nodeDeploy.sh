@@ -3,6 +3,7 @@
 #git clone $VOLUME
 for (( v = 1; v < $NUM_K8S+1; v++ ))
 do
+echo $SERVICE_IP$v
 	#statements
 echo '#!/bin/bash
 set -u
