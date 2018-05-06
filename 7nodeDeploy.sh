@@ -3,7 +3,6 @@
 #git clone $VOLUME
 for (( v = 1; v < $NUM_K8S+1; v++ ))
 do
-echo $SERVICE_IP
 	#statements
 echo "#!/bin/bash
 set -u
@@ -17,7 +16,7 @@ do
     cp 'keys/tm$i.pub' '$DDIR/tm.pub'
     cp 'keys/tm$i.key' '$DDIR/tm.key'
     rm -f '$DDIR/tm.ipc'
-    CMD='constellation-node --url=https://"$SERVICE_IP$v":9000/ --port=9000 --workdir=$DDIR --socket=tm.ipc --publickeys=tm.pub --privatekeys=tm.key --othernodes=https://${SERVER_IP1}:9000/'
+    CMD='constellation-node --url=https://$SERVICE_IP${v}:9000/ --port=9000 --workdir=$DDIR --socket=tm.ipc --publickeys=tm.pub --privatekeys=tm.key --othernodes=https://${SERVER_IP1}:9000/'
     echo '$CMD >> qdata/logs/constellation$i.log 2>&1 &'
     $CMD >> 'qdata/logs/constellation$i.log' 2>&1 &
 done
