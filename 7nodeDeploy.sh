@@ -1,10 +1,11 @@
 #echo "Enther your github volume address:"
 #read VOLUME
 #git clone $VOLUME
-
-for (( i = 1; i < $NUM_K8S; i++ )); do
+7node=$(echo NUM_K8S)
+for (( i = 1; i < $NUM_K8S; i++ ))
+do
 	#statements
-	echo "#!/bin/bash
+echo "#!/bin/bash
 set -u
 set -e
 
