@@ -1,6 +1,7 @@
 #echo "Enther your github volume address:"
 #read VOLUME
 #git clone $VOLUME
+iptemp1=$(kubectl get svc nodesvc1 | awk 'NR>1 {print $4}')
 for (( v = 1; v < $NUM_K8S+1; v++ ))
 do
 iptemp=$(kubectl get svc nodesvc$v | awk 'NR>1 {print $4}')
@@ -17,7 +18,7 @@ do
     cp 'keys/tm$i.pub' '$DDIR/tm.pub'
     cp 'keys/tm$i.key' '$DDIR/tm.key'
     rm -f '$DDIR/tm.ipc'
-    CMD='constellation-node --url=https://"$iptemp":9000/ --port=9000 --workdir=$DDIR --socket=tm.ipc --publickeys=tm.pub --privatekeys=tm.key --othernodes=https://$iptemp$v:9000/'
+    CMD='constellation-node --url=https://"$iptemp":9000/ --port=9000 --workdir=$DDIR --socket=tm.ipc --publickeys=tm.pub --privatekeys=tm.key --othernodes=https://"$iptemp1":9000/'
     echo '$CMD >> qdata/logs/constellation$i.log 2>&1 &'
     $CMD >> 'qdata/logs/constellation$i.log' 2>&1 &
 done
@@ -33,4 +34,7 @@ while $DOWN; do
 	fi
     done
 done" > constellation-start${v}.sh
+podname=$(kubectl get pods --selector=node=node{v}|  awk 'NR>1 {print $1}')
+#kubectl cp constellation-start${v}.sh default/$podname:/Docker/7node 
 done
+
